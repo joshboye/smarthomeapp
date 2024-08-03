@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:smarthomeapp/model/devices.dart';
 import 'package:smarthomeapp/provider/temp_provider.dart';
@@ -79,19 +81,35 @@ class _DevicesCarouselState extends State<DevicesCarousel> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          width: 150,
-          height: 150,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(100),
-            color: Color.fromARGB(255, 231, 229, 229),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Image.asset(
-              items[index]![1],
+        Stack(
+          children: [
+            Container(
+              width: 150,
+              height: 150,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: Color.fromARGB(255, 231, 229, 229),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: Image.asset(
+                  items[index]![1],
+                ),
+              ),
             ),
-          ),
+            Positioned(
+              bottom: 1,
+              left: 110,
+              child: Container(
+                width: 25,
+                height: 25,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.green,
+                ),
+              ),
+            ),
+          ],
         ),
         Padding(
           padding: const EdgeInsets.only(top: 10.0),
